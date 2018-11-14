@@ -1,0 +1,12 @@
+---
+title: "RLohiya Discussion12"
+author: "Ritesh Lohiya"
+date: "November 13, 2018"
+output: html_document
+---
+
+#                             Discussion 12
+
+#           IS 605 FUNDAMENTALS OF COMPUTATIONAL MATHEMATICS
+
+#                Multiple Linear Regression
