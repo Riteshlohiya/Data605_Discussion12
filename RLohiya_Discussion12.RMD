@@ -10,3 +10,42 @@ output: html_document
 #           IS 605 FUNDAMENTALS OF COMPUTATIONAL MATHEMATICS
 
 #                Multiple Linear Regression
+
+#Using R, build a multiple regression model for data that interests you.  Include in this model at least one quadratic term, one dichotomous term, and one dichotomous vs. quantitative interaction term.  Interpret all coefficients. Conduct residual analysis.  Was the linear model appropriate? Why or why not?
+
+I just created my own cars data and tried to fit the multiple linear regression model. The data has following variables: Mileage, Type, Cylinder, Liter, Doors, Leather and proce. Usinf all the other variables we are going to build the model to predict the price of the car.
+
+1. Quadratic term - Doors of the car.
+2. Dichotomous term - Type Sedan or Convertible
+3. Dichotomous vs Quantitative term - Type vs Doors
+
+```{r}
+#cars data
+cars <- read.csv('https://raw.githubusercontent.com/Riteshlohiya/Data605_Discussion12/master/cars.csv')
+summary(cars)
+```
+
+```{r}
+# Encoding the categorical variable
+cars$Type <- ifelse(cars$Type == 'Sedan', 0, 1) # Sedan = 0 and Convertible = 1
+cars
+```
+
+```{r}
+#Distribution
+hist(cars$Price, main = "Histogram of price of the cars")
+hist(cars$Mileage, main = "Histogram of Mileage of the cars")
+```
+
+```{r}
+#Correlation matrix
+pairs(cars)
+```
+
+# Build multiple regression model
+
+```{r}
+ml = lm(Price ~ Mileage + Type + Type*Doors+ Cylinder + Liter + Doors + Leather, data = cars)
+summary(ml)
+```
+
